@@ -1,0 +1,5 @@
+ptp: http://passthepopcorn.me/torrents.php?action=download&id=443762&authkey=9aca50f1a3b62d604225018e6d37a8d0&torrent_pass=52tavaam4g0o23nmbbzdwu4d9ek48ix7
+btn: https://broadcasthe.net/torrents.php?action=download&id=682870&authkey=a6652670f38e2fc05a356fb32c3bc07c&torrent_pass=wg3diuh84au25b3tmymj8ldtbhco4u73 (mr. robot new episode)
+ipt: https://iptorrents.com/download.php/1962136/Mr.Robot.S02E09.1080p.HEVC.x265-MeGusta.torrent
+
+ptp_ssl: https://tls.passthepopcorn.me/torrents.php?action=download&id=442959&authkey=9aca50f1a3b62d604225018e6d37a8d0&torrent_pass=52tavaam4g0o23nmbbzdwu4d9ek48ix7
