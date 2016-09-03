@@ -17,7 +17,7 @@
 					<input type="text" name="torrent_href[]" class="form-control input-lg torrent-link-input" placeholder="Torrent Download Link" autocomplete="off">
 				</div>
 				<div class="form-group">
-					<button type="button" id="add-torrent-link" class="btn btn-default btn-lg"><i class="fa fa-plus-square-o"></i> Add Torrent</button>
+					<button type="button" id="add-torrent-link" class="btn btn-default"><i class="fa fa-plus-square-o"></i> Add Torrent</button>
 				</div><!-- /#add-torrent-link -->
 
 				<div class="form-group">
