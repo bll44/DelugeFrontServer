@@ -14,3 +14,7 @@
 Route::get('/', 'FrontController@index');
 
 Route::post('add_torrent', 'FrontController@addTorrent');
+
+Route::get('test', function() {
+	return substr('/var/archive/DelugeFrontServer/torrents/Suits.S06E08.720p.HDTV.x264-KILLERS.[BTN].torrent', 0, 50);
+});

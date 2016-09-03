@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Torrent;
+use DB;
 
 class FrontController extends Controller
 {
@@ -13,7 +14,11 @@ class FrontController extends Controller
 	{
 		$message = session()->get('status_ok');
 
-		return view('torrents.add', ['message' => $message]);
+		$query = "SELECT domain, fs_archive_location, link, created_at 
+					FROM torrents ORDER BY created_at DESC";
+		$results = DB::select($query);
+
+		return view('torrents.add', ['message' => $message, 'torrents' => $results]);
 	}
 
 	public function addTorrent(Request $http)

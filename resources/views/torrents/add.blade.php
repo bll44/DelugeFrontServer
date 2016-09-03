@@ -21,13 +21,13 @@
 				</div><!-- /#add-torrent-link -->
 
 				<div class="form-group">
-					<button type="submit" class="btn btn-primary btn-lg col-lg-2 col-md-2 col-sm-12 col-xs-12">Download</button>
+					<button type="submit" class="btn btn-primary btn-lg col-lg-2 col-md-2 col-sm-12 col-xs-12" id="download-btn">Download</button>
 				</div>
 			</form>
 			</div>
 		</div><!-- /.panel -->
 
-	</div><!-- /.col -->
+	</div><!-- /.column -->
 </div><!-- /.row -->
 
 <div class="row">
@@ -35,6 +35,33 @@
 	<div class="col-lg-12 col-md-12">
 	{{ $message }}
 	</div>
+
+</div><!-- /.row -->
+
+<div class="row">
+
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+		<table class="table">
+			<thead>
+				<th>Tracker Domain</th>
+				<th>.torrent File Location</th>
+				<th>Link</th>
+				<th>Downloaded at</th>
+			</thead>
+			<tbody>
+				@foreach($torrents as $row)
+				<tr>
+					<td>{{ $row->domain }}</td>
+					<td>{{ substr($row->fs_archive_location, 0, 55) . '....torrent' }}</td>
+					<td>{{ substr($row->link, 0, 34) . '...' }}</td>
+					<td>{{ $row->created_at }}</td>
+				</tr>
+				@endforeach
+			</tbody>
+		</table>
+
+	</div><!-- /.column -->
 
 </div><!-- /.row -->
 
