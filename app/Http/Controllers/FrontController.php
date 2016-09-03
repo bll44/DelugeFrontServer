@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 use App\Http\Requests;
 use App\Torrent;
@@ -42,14 +43,24 @@ class FrontController extends Controller
 			curl_close($ch);
 			fclose($file);
 			
+			// set location to copy/move .torrent file to
+			$newFileLocation = env('TORRENT_WATCH_DIR') . $filename;
+
+			// make a copy of the .torrent file before moving it
+			if( ! copy($fileLocation, env('TORRENT_ARCHIVE_DIR') . $filename))
+				Log::error('Failed to create archive copy of ' . $filename . ' in ' . env('TORRENT_ARCHIVE_DIR') . "\n");
+			else
+				Log::info('Successfully created archive copy of ' . $filename . ' in ' . env('TORRENT_ARCHIVE_DIR') . "\n");
+			
 			// move the downloaded file to Deluge monitored directory
-			$newFileLocation = '/mnt/torrents/' . $filename;
 			if( ! rename($fileLocation, $newFileLocation))
 			{
 				return redirect('/')
-							->with('file_move_error', 'Failed to move the ('.$filename.') file to the monitored directory');
+							->with('file_move_error', 'Failed to move the file ' . $filename . ' to the monitored directory');
 
 			}
+			
+			$torrentobj->save();
 		}
 
 		return redirect('/')->with('status_ok', 'I think it worked.');
