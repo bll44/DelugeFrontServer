@@ -16,8 +16,8 @@ class CreateTorrentsTable extends Migration
         Schema::create('torrents', function (Blueprint $table) {
             $table->increments('id');
             $table->string('domain');
-            $table->string('direct_link');
-            $table->string('fs_location')->nullable();
+            $table->string('link');
+            $table->string('fs_archive_location')->nullable();
             $table->timestamps();
         });
     }
