@@ -62,7 +62,7 @@ class FrontController extends Controller
 			]);
 		}
 
-		return redirect('/')->with('status_ok', 'I think it worked.');
+		return redirect('/')->with('status_ok', 'Torrent successfully downloaded.');
 	}
 
 }
