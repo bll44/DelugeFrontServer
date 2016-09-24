@@ -15,7 +15,7 @@ class FrontController extends Controller
 		$message = session()->get('status_ok');
 
 		$query = "SELECT domain, fs_archive_location, link, created_at 
-					FROM torrents ORDER BY created_at DESC";
+					FROM torrents ORDER BY created_at DESC LIMIT 25";
 		$results = DB::select($query);
 
 		return view('torrents.add', ['message' => $message, 'torrents' => $results]);
@@ -62,7 +62,7 @@ class FrontController extends Controller
 			]);
 		}
 
-		return redirect('/')->with('status_ok', 'Torrent successfully downloaded.');
+		return redirect('/')->with('status_ok', 'Torrent successfully picked up.');
 	}
 
 }

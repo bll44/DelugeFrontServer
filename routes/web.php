@@ -16,5 +16,5 @@ Route::get('/', 'FrontController@index');
 Route::post('add_torrent', 'FrontController@addTorrent');
 
 Route::get('testing', function() {
-	return view('main.test');
+	return view('testing.index');
 });
