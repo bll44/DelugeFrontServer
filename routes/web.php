@@ -18,3 +18,7 @@ Route::post('add_torrent', 'FrontController@addTorrent');
 Route::get('testing', function() {
 	return view('testing.index');
 });
+
+Route::get('dapi', function() {
+	return view('js_test');
+});
