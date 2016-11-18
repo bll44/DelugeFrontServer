@@ -62,7 +62,7 @@
 				<tr>
 					<td>{{ $row->domain }}</td>
 					<td>{{ substr($row->fs_archive_location, 0, 55) . '....torrent' }}</td>
-					<td>{{ substr($row->link, 0, 34) . '...' }}</td>
+					<td class="transform-textbox" data-actual-value="{{ $row->link }}">{{ substr($row->link, 0, 34) . '...' }}</td>
 					<td>{{ $row->created_at }}</td>
 				</tr>
 				@endforeach
@@ -79,6 +79,11 @@
 @section('scripts')
 
 <script type="text/javascript">
+
+// function for prompting the user to copy text, allows a custom prompt
+function copyPrompt(text, customPrompt = null) {
+	window.prompt(customPrompt == null ? "Copy text, CTRL + C" : customPrompt, text);
+}
 
 // Fade out status message after 5 seconds
 $(document).ready(function() {
@@ -105,6 +110,17 @@ $('#add-file-form').submit(function() {
 			event.preventDefault();
 		}
 	});
+});
+
+$(".transform-textbox").on('click', function() {
+	// get the actual link
+	var link = $(this).data('actual-value');
+	// set the background of the row to green to indicate it is active
+	$(this).parent().addClass('success');
+	// prompt the user to copy the full link for use elsewhere
+	setTimeout(function() {
+		copyPrompt(link, "Copy link to clipboard, CTRL + C");
+	}, 250)
 });
 
 </script>
