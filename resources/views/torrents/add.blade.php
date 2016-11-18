@@ -50,7 +50,7 @@
 
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
-		<table class="table">
+		<table class="table" id="torrent-download-history">
 			<thead>
 				<th>Tracker Domain</th>
 				<th>.torrent File Location</th>
@@ -82,7 +82,10 @@
 
 // function for prompting the user to copy text, allows a custom prompt
 function copyPrompt(text, customPrompt = null) {
-	window.prompt(customPrompt == null ? "Copy text, CTRL + C" : customPrompt, text);
+	var result = window.prompt(customPrompt == null ? "Copy text, CTRL + C" : customPrompt, text);
+	$('table#torrent-download-history tr').each(function() {
+		$(this).removeClass('success');
+	});
 }
 
 // Fade out status message after 5 seconds
